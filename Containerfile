@@ -1,6 +1,6 @@
 FROM docker.io/library/archlinux:latest AS cloner
 RUN pacman -Sy --noconfirm git
-RUN git clone --depth=1 --recurse-submodules https://codeberg.org/openuup/web.git openuup
+RUN git clone --depth=1 --recurse-submodules https://somegit.dev/openuup/web.git openuup
 
 FROM quay.io/centos/centos:stream10 AS default
 RUN pacman -Sy --noconfirm php && pacman -Scc
