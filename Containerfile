@@ -1,9 +1,9 @@
-FROM quay.io/centos/centos:stream10 AS cloner
-RUN dnf install git -y && dnf clean all
+FROM docker.io/library/archlinux:latest AS cloner
+RUN pacman -Sy --noconfirm git
 RUN git clone --depth=1 --recurse-submodules https://codeberg.org/openuup/web.git openuup
 
 FROM quay.io/centos/centos:stream10 AS default
-RUN dnf install php php-xml -y && dnf clean all
+RUN pacman -Sy --noconfirm php && pacman -Scc
 RUN echo max_execution_time=120 > /etc/php.d/10-max_execution_time.ini
 COPY --from=cloner /openuup /openuup
 EXPOSE 80
