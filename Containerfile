@@ -1,6 +1,6 @@
 FROM quay.io/archlinux/archlinux:latest AS cloner
 RUN pacman -Sy --noconfirm git
-RUN git clone --depth=1 --recurse-submodules https://somegit.dev/openuup/web.git openuup
+RUN git clone --depth=1 --recurse-submodules https://github.com/openuup-dev/web.git openuup
 
 FROM quay.io/archlinux/archlinux:latest AS default
 RUN pacman -Sy --noconfirm php && pacman -Scc --noconfirm
