@@ -1,5 +1,5 @@
 FROM registry.access.redhat.com/ubi10:latest AS cloner
-RUN dnf install git -y
+RUN dnf install git-core -y
 RUN git clone --depth=1 --recurse-submodules https://github.com/openuup-dev/web.git openuup
 
 FROM registry.access.redhat.com/ubi10:latest AS default
